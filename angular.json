@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "gameSweep"
+    }
+  },
+  "defaultProject": "gameSweep",
+  "cli": {
+    "analytics": "53307630-8462-4781-9543-02ad46218f1e"
+  }
 }
