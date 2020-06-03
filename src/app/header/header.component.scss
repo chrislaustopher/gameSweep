@@ -1,5 +1,33 @@
+$lt-gray: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+$background-moredark: #16A085;
+$text-white: #FDFEFE;
+
 .fill-space {
   /* This fills the remaining space, by using flexbox. 
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
+}
+
+.tiny-gap {
+  padding: 5px;
+}
+
+.small-gap {
+  padding: 10px;
+}
+
+.medium-gap {
+  padding: 20px;
+}
+
+.name {
+  font-size: 1rem;
+}
+
+.active {
+  color: $text-white;
+  opacity: 1.0;
 }
