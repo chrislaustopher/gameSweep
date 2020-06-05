@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit {
   weekTypes: WeekType[]
 
   ngOnInit(): void {
-  	this.teamService.getTeams()
-  		.subscribe((teams) => this.teams=teams);
+  	// this.teamService.getTeams()
+  	// 	.subscribe((teams) => this.teams=teams);
 
     this.weekTypes = [
     {

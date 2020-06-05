@@ -11,9 +11,9 @@ const routes: Routes = [
 		children:[
 			{ path: 'season/:weekType', component: SeasonComponent,
 				children: [
-					{ path: 'week/:weekNum', component: WeekComponent}
+					{ path: 'week/:weekType/:weekNum', component: WeekComponent}
 				]
-		},
+			},
 		]
 	},
 	{ path: 'about', component: AboutComponent},

@@ -1,7 +1,6 @@
 export class Team {
-	id: string;
-	name: string;
+	teamId: string;
 	//image: string;
-	location: string;
-	abbr: string;
+	teamLoc: string;
+	Team: string;
 }

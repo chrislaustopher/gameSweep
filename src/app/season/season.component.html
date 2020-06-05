@@ -1,13 +1,17 @@
 <div class="margin-left">
-	<mat-drawer-container class="example-container">
-	  <mat-drawer mode="side" class="example-container" opened autosize>
+	<mat-drawer-container>
+	  <mat-drawer mode="side" class="example-container" opened>
 		<mat-nav-list>
-<!-- 			<a mat-button *ngFor="let week of weekTypes" [routerLink]="['week',week.weekNum]" 
-    			routerLinkActive="active" color="secondary"> {{ week.weekF }} </a> -->
-			<mat-list-item *ngFor="let week of weeks" color="primary" style="height:2rem">
+			<h2 class="barTitle"> Week </h2>
+			<a mat-list-item *ngFor="let week of weeks" [routerLink]="['week',week.weekType,week.weekNum]" 
+    			color="primary" routerLinkActive="active"> {{ week.weekF }} </a>
+<!-- 			<mat-list-item *ngFor="let week of weeks" color="primary" style="height:2rem">
 				<h1 matLine> {{ week.weekF }}</h1>
-			</mat-list-item>
+			</mat-list-item> -->
 		</mat-nav-list>
 	  </mat-drawer>
+	  <mat-drawer-content class= "example-container-1">
+	  	<router-outlet></router-outlet>
+	  </mat-drawer-content>
 	</mat-drawer-container>
 </div>

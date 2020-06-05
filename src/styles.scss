@@ -52,14 +52,14 @@ $divider-color:        #BDBDBD;
 }
 
 .mat-toolbar.mat-primary {
-  background: #45B39D;
+  background: #FF551F;
   color: #FDFEFE;
   
 }
 
 .mat-button.mat-primary {
-  background: #45B39D;
-  color: #FDFEFE;
+  background: #FF551F;
+  color: #FFFFFF;
   opacity: 0.7;
   &:hover {
     opacity: 1.0;
@@ -86,6 +86,19 @@ $divider-color:        #BDBDBD;
 }
 
 .mat-list-item.mat-primary {
+  background: #ECF0F1;
   color: #000000;
-
+  opacity: 0.7;
+  &:hover {
+    opacity: 1.0;
+    background: #ECF0F1;
+  }
+  font-size: 0.8rem;
+  font-weight: bold;
 }
+
+.barTitle {
+  text-align: center;
+  margin: 0px;
+}
+

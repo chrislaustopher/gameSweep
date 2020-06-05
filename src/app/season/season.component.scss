@@ -1,4 +1,18 @@
 .example-container {
   height: 34rem;
   width: 15rem;
+
+  border: 1px solid #555;
+}
+
+.example-container-1 {
+  height: 34rem;
+  width: 50rem;
+
+  border: 1px solid #555;
+}
+
+.active {
+  opacity: 1.0;
+  background: #ECF0F1;
 }
