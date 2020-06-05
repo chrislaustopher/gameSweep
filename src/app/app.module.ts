@@ -22,6 +22,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -69,6 +70,7 @@ import { WeekComponent } from './week/week.component';
     HttpClientModule,
     MatSliderModule,
     MatSidenavModule,
+    MatDividerModule,
   ],
   providers: [
   	TeamService,

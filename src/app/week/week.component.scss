@@ -1,3 +1,66 @@
 .primary {
-	height: 2rem;
+	height: auto;
+	margin: 0rem;
+}
+
+.titlePrimary {
+	text-align: center;
+	height: auto;
+}
+
+.grayBack {
+	background: #b3bbb9;
+}
+
+.rowDiv {
+	margin-left: 1rem;
+}
+
+.mat-nav-list .mat-list-item {
+	height: auto;
+	padding: 0rem;
+	margin: 0rem;
+}
+
+.game {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	width: 2rem;
+	height: auto;
+}
+
+.team {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	width: 10rem;
+	height: auto;
+}
+
+.score {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	width: 2rem;
+	text-align: center;
+	height: auto;
+}
+
+h4 {
+	font-weight: normal
+}
+
+.example-container {
+  height: 34rem;
+  width: 21rem;
+
+}
+
+.example-container-1 {
+  height: 34rem;
+  width: 50rem;
+  border: 1px solid #555;
+}
+
+.active {
+  opacity: 1.0;
+  background: #ECF0F1;
 }

@@ -31,7 +31,12 @@ export class WeekComponent implements OnInit {
   	console.log(this.route.params);
   	this.route.params.pipe(switchMap(
       (params:Params) => this.weekService.getMatchups(params['weekType'],params['weekNum'])))
-      .subscribe((matchups) => { this.matchups = matchups });
+      .subscribe((matchups) => { this.matchups = matchups; console.log(matchups);});
+
+  }
+
+  addOne(num: string): number {
+  	return parseInt(num)+1;
   }
 
   teamLoc(teamId: string): string {

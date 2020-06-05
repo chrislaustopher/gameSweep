@@ -1,8 +1,9 @@
-<div class="margin-left">
+<div fxLayout="row" class="margin-left">
 	<mat-drawer-container>
 	  <mat-drawer mode="side" class="example-container" opened>
-		<mat-nav-list>
+		<mat-nav-list fxLayout="column">
 			<h2 class="barTitle"> Week </h2>
+			<mat-divider class="dividerPrimary"></mat-divider>
 			<a mat-list-item *ngFor="let week of weeks" [routerLink]="['week',week.weekType,week.weekNum]" 
     			color="primary" routerLinkActive="active"> {{ week.weekF }} </a>
 <!-- 			<mat-list-item *ngFor="let week of weeks" color="primary" style="height:2rem">

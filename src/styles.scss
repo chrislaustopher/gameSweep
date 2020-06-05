@@ -19,6 +19,15 @@ body {
   margin-left: 5rem;
 }
 
+.margin-right {
+  margin-right: 5rem;
+}
+
+.margin-leftRight {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
 $lt-gray: #ddd;
 $background-dark: #512DA8;
 $background-light: #9575CD;
@@ -100,5 +109,9 @@ $divider-color:        #BDBDBD;
 .barTitle {
   text-align: center;
   margin: 0px;
+}
+
+.dividerPrimary {
+  opacity: 0.3;
 }
 
