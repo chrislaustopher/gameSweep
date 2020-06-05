@@ -15,6 +15,10 @@ body {
   font-size: 0.8rem;
 }
 
+.margin-left {
+  margin-left: 5rem;
+}
+
 $lt-gray: #ddd;
 $background-dark: #512DA8;
 $background-light: #9575CD;
@@ -50,6 +54,7 @@ $divider-color:        #BDBDBD;
 .mat-toolbar.mat-primary {
   background: #45B39D;
   color: #FDFEFE;
+  
 }
 
 .mat-button.mat-primary {
@@ -61,4 +66,26 @@ $divider-color:        #BDBDBD;
   }
   font-size: 0.8rem;
   font-weight: bold;
+}
+
+.mat-toolbar.mat-secondary {
+  background: #ECF0F1;
+  color: #000000;
+  justify-content: center;
+}
+
+.mat-button.mat-secondary {
+  background: #ECF0F1;
+  color: #000000;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1.0;
+  }
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.mat-list-item.mat-primary {
+  color: #000000;
+
 }

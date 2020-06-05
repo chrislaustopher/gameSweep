@@ -1,11 +1,18 @@
+<mat-toolbar color="secondary" style="height:2.5rem">
+<!--   <span><img src="/assets/images/logo.png" height=30 width=41></span> -->
+  <a mat-button *ngFor="let type of weekTypes" [routerLink]="['season',type.weekType]" 
+    routerLinkActive="active" color="secondary"> {{type.weekTypeF}} </a>
+</mat-toolbar>
+
 <div class="container"
      fxLayout="column"
      fxLayoutGap="10px">
 
-  <mat-list fxFlex>
-    <mat-list-item *ngFor="let team of teams">
+
+<!--   <mat-list fxFlex>
+    <mat-list-item *ngFor="let team of teams"> -->
       <!-- <img matListAvatar src={{dish.image}} alt={{dish.name}}> -->
-      <h1 matLine> {{team.name}} </h1>
+<!--       <h1 matLine> {{team.location}} </h1>
       <p matLine>
         <span> {{team.location}} </span>
       </p>
@@ -13,6 +20,7 @@
   </mat-list>
   <div fxFlex [hidden]="teams">
   	<mat-spinner></mat-spinner>
-  </div>
-
+  </div> -->
+<!--   <app-season></app-season> -->
+  <router-outlet></router-outlet>
 </div>

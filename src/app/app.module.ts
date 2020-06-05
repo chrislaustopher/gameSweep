@@ -20,7 +20,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -29,15 +30,21 @@ import { Team } from './shared/team';
 import { baseURL } from './shared/baseurl';
 
 import { TeamService } from './services/team.service';
+import { SeasonService} from './services/season.service';
+
 import { HeaderComponent } from './header/header.component';
-import { AboutComponent } from './about/about.component'; 
+import { AboutComponent } from './about/about.component';
+import { SeasonComponent } from './season/season.component';
+import { WeekComponent } from './week/week.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    AboutComponent
+    AboutComponent,
+    SeasonComponent,
+    WeekComponent
   ],
   imports: [
     BrowserModule,
@@ -60,11 +67,13 @@ import { AboutComponent } from './about/about.component';
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSidenavModule,
   ],
   providers: [
   	TeamService,
-  	{provide: 'BaseURL', useValue: baseURL}
+    SeasonService,
+  	{provide: 'BaseURL', useValue: baseURL},
   ],
   bootstrap: [AppComponent]
 })
