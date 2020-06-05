@@ -8,6 +8,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { Week } from '../shared/week';
 import { Matchup } from '../shared/matchup';
 
+import { TeamService } from '../services/team.service';
+
 @Injectable({
   providedIn: 'root'
 })

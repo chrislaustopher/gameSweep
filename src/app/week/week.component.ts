@@ -47,4 +47,8 @@ export class WeekComponent implements OnInit {
     return this.teamService.getTeamName(teamId);
   }
 
+  teamImage(teamId: string): string {
+  	return this.teamService.getTeamImage(teamId);
+  }
+
 }

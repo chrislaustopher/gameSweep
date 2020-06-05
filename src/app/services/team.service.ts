@@ -21,4 +21,8 @@ export class TeamService {
   getTeamLoc(teamId: string): string {
   	return TEAMS.filter((team) => (team.teamId == teamId))[0]['teamLoc'];
   }
+
+  getTeamImage(teamId: string): string {
+  	return TEAMS.filter((team) => (team.teamId == teamId))[0]['image'];
+  }
 }

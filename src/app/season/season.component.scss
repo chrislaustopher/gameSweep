@@ -1,13 +1,14 @@
 .example-container {
   height: 34rem;
-  width: 15rem;
-
+  min-width: 13rem;
+  width:15%;
 }
 
 .example-container-1 {
+  padding-left: 2rem;
   height: 34rem;
-  width: 50rem;
-//  border: 1px solid #555;
+  min-width: 40rem;
+  width:80%
 }
 
 .active {

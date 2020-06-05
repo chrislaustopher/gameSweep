@@ -3,4 +3,5 @@ export class Team {
 	//image: string;
 	teamLoc: string;
 	Team: string;
+	image: string;
 }

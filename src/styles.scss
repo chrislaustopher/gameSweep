@@ -13,10 +13,21 @@ body {
 	margin: 25px;
 	display: flex;
   font-size: 0.8rem;
+//  background: #b3bbb9;
 }
 
-.margin-left {
+.container-left {
   margin-left: 5rem;
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.container-leftRight {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  display: flex;
+  font-size: 0.8rem;
+  border: 2px solid #555;
 }
 
 .margin-right {
@@ -113,5 +124,6 @@ $divider-color:        #BDBDBD;
 
 .dividerPrimary {
   opacity: 0.3;
+  width: 100%;
 }
 

@@ -1,15 +1,45 @@
-.primary {
-	height: auto;
-	margin: 0rem;
+.container-left {
+  margin-left: 0rem;
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.example-container {
+  height: 34rem;
+  min-width: 18rem;
+  max-width: 30rem;
+  width:40%
+}
+
+.example-container-1 {
+  height: 34rem;
+  min-width: 50rem;
+  width:60%
 }
 
 .titlePrimary {
 	text-align: center;
+	margin-left: 0rem;
+	margin-right: 0rem;
 	height: auto;
 }
 
-.grayBack {
-	background: #b3bbb9;
+.primary {
+	height: 0.8rem;
+	margin-top: .5rem;
+	margin-left: 0rem;
+	marign-right: 0rem;
+}
+
+.center {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.none {
+	margin: 0px;
+	padding: 0px;
 }
 
 .rowDiv {
@@ -25,7 +55,14 @@
 .game {
 	padding-left: 1rem;
 	padding-right: 1rem;
-	width: 2rem;
+	width: 3rem;
+	height: auto;
+}
+
+.logo {
+	padding: 0rem;
+	margin-top: -0.5rem;
+	width: 0.8rem;
 	height: auto;
 }
 
@@ -48,16 +85,9 @@ h4 {
 	font-weight: normal
 }
 
-.example-container {
-  height: 34rem;
-  width: 21rem;
-
-}
-
-.example-container-1 {
-  height: 34rem;
-  width: 50rem;
-  border: 1px solid #555;
+.active {
+  opacity: 1.0;
+  background: #ECF0F1;
 }
 
 .active {

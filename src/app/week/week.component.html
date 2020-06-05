@@ -1,6 +1,6 @@
-<div fxLayout="row" class="margin-leftRight">
+<div fxLayout="row" class="container-left">
 	<mat-drawer-container>
-	  <mat-drawer mode="side" opened fxFlex>
+	  <mat-drawer mode="side" opened class="example-container">
 		<mat-nav-list fxLayout="column">
 			<h2 class="barTitle"> Matchups </h2>
 			<mat-divider class="dividerPrimary"></mat-divider>
@@ -8,8 +8,11 @@
 				<div class="game">
 					<h4 matLine class="titlePrimary"> <b>Game </b></h4>
 				</div>
+				<div class="logo">
+					<h4 matLine class="titlePrimary"></h4>
+				</div>
 				<div class="team">
-					<h4 matLine class="titlePrimary"> <b>Teams </b></h4>
+					<h4 matLine> <b>Teams </b></h4>
 				</div>
 				<div class="score">
 					<h4 matLine class="titlePrimary"> <b>Score </b></h4>
@@ -20,8 +23,12 @@
 				<div class="game">
 					<h4 matLine class="primary"> Game {{ addOne(matchup.matchupId) }} </h4>
 				</div>
+				<div class="logo">
+					<h4 matLine class="primary"> <img height=25rem width=25rem src="{{teamImage(matchup.team1)}}" class="center"></h4>
+					<h4 matLine class="primary"> <img height=25rem width=25rem src="{{teamImage(matchup.team2)}}" class="center"></h4>
+				</div>
 				<div class="team">
-					<h4 matLine class="primary">{{ teamLoc(matchup.team1) }} {{ teamName(matchup.team1) }}</h4>
+					<h4 matLine class="primary">{{ teamLoc(matchup.team1) }} {{ teamName(matchup.team1) }} </h4>
 					<h4 matLine class="primary">{{ teamLoc(matchup.team2) }} {{ teamName(matchup.team2) }} </h4>
 				</div>
 				<div class="score">
@@ -32,27 +39,9 @@
 			</a>
 		</mat-nav-list>
 	  </mat-drawer>
-	  <mat-drawer-content class= "example-container">
+	  <mat-drawer-content fxLayout="column" class= "example-container-1">
+	  	<router-outlet></router-outlet>
 	  </mat-drawer-content>
 	</mat-drawer-container>
-
-<!-- 	<mat-list fxLayout="column">
-		<h2 class="barTitle"> Matchups </h2>
-		<mat-divider class="dividerPrimary"></mat-divider>
-		<a mat-list-item *ngFor="let matchup of matchups" color="primary" fxLayout="row" class="listRow">
-			<div class="game">
-			<h4 matLine class="primary"> Game {{ addOne(matchup.matchupId) }} </h4>
-			</div>
-			<div class="team">
-			<h4 matLine class="primary">{{ teamLoc(matchup.team1) }} {{ teamName(matchup.team1) }}</h4>
-			<h4 matLine class="primary">{{ teamLoc(matchup.team2) }} {{ teamName(matchup.team2) }} </h4>
-			</div>
-			<div class="score">
-				<h4 matLine class="primary">{{ matchup.team1Score }}</h4>
-				<h4 matLine class="primary">{{ matchup.team2Score }}</h4>
-			</div>
-			<mat-divider class="dividerPrimary"></mat-divider>
-		</a>
-	</mat-list> -->
 
 </div>
