@@ -37,6 +37,7 @@ import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { SeasonComponent } from './season/season.component';
 import { WeekComponent } from './week/week.component';
+import { MatchupComponent } from './matchup/matchup.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { WeekComponent } from './week/week.component';
     HeaderComponent,
     AboutComponent,
     SeasonComponent,
-    WeekComponent
+    WeekComponent,
+    MatchupComponent
   ],
   imports: [
     BrowserModule,

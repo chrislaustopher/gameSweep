@@ -1,4 +1,4 @@
-export class teamStatsOP {
+export class TeamStatsOP {
     "Team": string;
     "weekType": string;
     "Pass Yds": string;

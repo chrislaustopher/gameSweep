@@ -1,0 +1,46 @@
+<div class="mcontainer1" fxLayout="columns" fxLayoutGap="10px">
+	<mat-card>
+		<div fxLayout="rows">
+			<mat-card-header class="titleName">
+				<mat-card-title>
+					<img height=50rem width=50rem src="{{this.team1Stats.team.image}}" class="center">
+				</mat-card-title>
+			</mat-card-header>
+			<mat-card-header class="titleName">
+				<mat-card-title>
+					<h3> {{this.team1Stats.team.teamLoc}} {{this.team1Stats.team.Team}} </h3>				
+				</mat-card-title>
+			</mat-card-header>
+			<mat-card-header class="versus">
+				<mat-card-title>
+					<h2> @ </h2>
+				</mat-card-title>
+			</mat-card-header>
+			<mat-card-header class="titleName">
+				<mat-card-title>
+					<h3> {{this.team2Stats.team.teamLoc}} {{this.team2Stats.team.Team}} </h3>
+				</mat-card-title>
+			</mat-card-header>
+			<mat-card-header class="titleName">
+				<mat-card-title>
+					<img height=50rem width=50rem src="{{this.team2Stats.team.image}}" class="center">
+				</mat-card-title>
+			</mat-card-header>
+		</div>
+		<div fxLayout="columns" class="mcontainer1">
+			<div class="cat1">
+				<mat-card-title class="cat2">
+					<h3> Pass Game </h3>
+				</mat-card-title>
+				<mat-card-content fxLayout="rows" class="info2">
+					<mat-card-content fxFlex>
+						{{ this.team1Stats.op['Pass Yds'] }}
+					</mat-card-content>
+					<mat-card-content fxFlex>
+						grr
+					</mat-card-content>
+				</mat-card-content>
+			</div>
+		</div>
+	</mat-card>
+</div>

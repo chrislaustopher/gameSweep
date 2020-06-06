@@ -1,15 +1,24 @@
-.example-container {
+.scontainer {
   height: 34rem;
   min-width: 13rem;
-  width:15%;
+  display: flex;
 }
 
-.example-container-1 {
-  padding-left: 2rem;
+.scontainer-1 {
   height: 34rem;
-  min-width: 40rem;
-  width:80%
+  display: flex;
 }
+
+.scontainer-2 {
+  width: 100%;
+  display: flex;
+}
+
+.smatDrawer {
+  display: flex;
+  width: 100%;
+}
+
 
 .active {
   opacity: 1.0;

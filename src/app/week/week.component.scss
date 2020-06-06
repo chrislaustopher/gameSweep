@@ -1,37 +1,41 @@
-.container-left {
-  margin-left: 0rem;
+.wcontainer1 {
+	display: flex;
+	width: 100%;
+	margin-right: 1px;
+}
+
+.wmatDrawer {
+  padding: 0px;
+  margin: 0px;
   display: flex;
-  font-size: 0.8rem;
 }
 
-.example-container {
+.wcontainer {
+  min-width: 23rem;
+  display: flex;
+}
+
+.wcontainer-1 {
   height: 34rem;
-  min-width: 18rem;
-  max-width: 30rem;
-  width:40%
+  width: 100%;
+  display: flex;
 }
 
-.example-container-1 {
-  height: 34rem;
-  min-width: 50rem;
-  width:60%
-}
-
-.titlePrimary {
+.wtitlePrimary {
 	text-align: center;
 	margin-left: 0rem;
 	margin-right: 0rem;
 	height: auto;
 }
 
-.primary {
+.wprimary {
 	height: 0.8rem;
 	margin-top: .5rem;
 	margin-left: 0rem;
 	marign-right: 0rem;
 }
 
-.center {
+.wcenter {
   display: block;
   margin-left: 0;
   margin-right: 0;
@@ -55,7 +59,7 @@
 .game {
 	padding-left: 1rem;
 	padding-right: 1rem;
-	width: 3rem;
+	width: 3.5rem;
 	height: auto;
 }
 
@@ -69,7 +73,7 @@
 .team {
 	padding-left: 1rem;
 	padding-right: 1rem;
-	width: 10rem;
+	width: 9rem;
 	height: auto;
 }
 

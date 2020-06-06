@@ -1,4 +1,4 @@
-export class teamStatsOR {
+export class TeamStatsOR {
     "Team": string;
     "weekType": string;
     "Rush Yds": string;

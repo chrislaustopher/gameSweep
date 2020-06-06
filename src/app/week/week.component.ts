@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Inject, Input } from '@angular/core';
 
 import { Matchup } from '../shared/matchup';
 import { Team } from '../shared/team';
@@ -14,7 +14,7 @@ import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-week',
   templateUrl: './week.component.html',
-  styleUrls: ['./week.component.scss']
+  styleUrls: ['./week.component.scss'],
 })
 export class WeekComponent implements OnInit {
 
@@ -28,10 +28,9 @@ export class WeekComponent implements OnInit {
   team: [];
 
   ngOnInit(): void {
-  	console.log(this.route.params);
   	this.route.params.pipe(switchMap(
       (params:Params) => this.weekService.getMatchups(params['weekType'],params['weekNum'])))
-      .subscribe((matchups) => { this.matchups = matchups; console.log(matchups);});
+      .subscribe((matchups) => { this.matchups = matchups;});
 
   }
 

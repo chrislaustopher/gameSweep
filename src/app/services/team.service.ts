@@ -12,7 +12,7 @@ import { TEAMS } from '../shared/teams';
 })
 export class TeamService {
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   getTeamName(teamId: string): string {
   	return TEAMS.filter((team) => (team.teamId == teamId))[0]['Team'];
@@ -24,5 +24,9 @@ export class TeamService {
 
   getTeamImage(teamId: string): string {
   	return TEAMS.filter((team) => (team.teamId == teamId))[0]['image'];
+  }
+
+  getTeam(teamId: string): Team {
+    return TEAMS.filter((team) => (team.teamId == teamId))[0];
   }
 }

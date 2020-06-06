@@ -1,4 +1,4 @@
-export class teamStatsDP {
+export class TeamStatsDP {
     "Team": string;
     "weekType": string;
     "Yds": string;

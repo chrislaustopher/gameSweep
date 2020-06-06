@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Inject, Input } from '@angular/core';
 import { Team } from '../shared/team';
 import { SeasonService } from '../services/season.service';
 
