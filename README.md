@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
-The data scraping script was done with jupyter notebooks is located in the folder jup/
+The data scraping script was done with jupyter notebooks, and is located in the folder jup/
 
 The json-server with the db.json file is located in the folder json/
 
