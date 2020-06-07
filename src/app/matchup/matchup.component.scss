@@ -1,41 +1,150 @@
 .mcontainer1 {
   font-size: 0.8rem;
-  border: 1x solid #555;
-  background: #b3bbb9;
+  background: #ECF0F1;
   text-align: center;
   width: 100%;
-  max-width: 35rem;
+  max-width: 40rem;
+  padding: 0rem;
+}
+
+.matchupName {
+	background: #2980B9;
+}
+
+.teamNameT {
+	color: #FFFFFF;
 }
 
 .titleName {
 	width: 100%;
-	margin: 0px;
-	padding: 0px;
 	height: 4rem;
-	border: 2px solid #555;
+	padding: 0rem;
+}
+
+.teamNameL {
+	margin-left: -2rem;
+}
+
+.teamNameR {
+	margin-right: -2rem;
 }
 
 .center {
-	border: 2px solid #555;
 	height: 5rem;
 	width: 5rem;
 	margin-top: -0.5rem;
 }
 
 .cat1 {
-	border: 1px solid #555;
 	width: 100%;
 }
 
 .cat2 {
-	border: 2px solid #555;
 	width: 100%;
-	margin: 0px;
+	margin-top: 0.3rem;
 	padding: 0px;
-	height: 2.5rem;
+	height: 1.7rem;
+	background: #7B7D7D;
+}
+
+.cat2Title {
+	padding: .3rem;
+	margin: 0rem;
+	height: 1rem;
+	color: #FDFEFE;
 }
 
 .info2 {
-	border: 5px solid #555;
 	width: 100%;
+	padding: 0rem;
+	margin: 0rem;
+}
+
+.infoTitle {
+	height: 1.5rem;
+}
+
+.cat3 {
+	width: 5rem;
+	margin-right: 0.5rem;
+	margin-left: 0.5rem;
+	padding: 0rem;
+	text-align: center;
+}
+
+.cat3Title {
+	background: #D0D3D4;
+}
+
+.showAdvanced {
+  margin: 0 auto;
+  width: 8rem;
+  background: #ECF0F1;
+  color: #000000;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1.0;
+  }
+  font-size: 0.75rem;
+  height: 1rem;
+  text-decoration: underline;
+}
+
+.hideAdvanced {
+  background: #ECF0F1;
+  color: #000000;
+  opacity: 1.0;
+  font-size: 0.7rem;
+  height: 1rem;
+  text-decoration: underline;
+}
+
+.showAdvancedT {
+	padding:0rem;
+	margin-top: -0.8rem;
+	height: 1.5rem;
+}
+
+.infoList {
+	margin: 0rem;
+	width: 100%;
+	font-size: 0.7rem;
+	border: 0.5px solid #555;
+	margin-bottom: 0.3rem;
+	padding-top: 0.3rem;
+	background: #F0F3F4;
+}
+
+.listOverall {
+	height: 1.5rem;
+	padding: 0rem;
+	margin: 0rem;
+	font-size: 1rem;
+}
+
+.listItem {
+	height: 1.5rem;
+	padding: 0rem;
+	margin: 0rem;
+}
+
+.midL {
+	text-align: left;
+	padding-left: 2rem;
+}
+
+.VS {
+	width: 0rem;
+	margin: 0rem;
+}
+
+.midR {
+	text-align: right;
+	padding-right: 2rem;
+}
+
+.dividerPrimary {
+  opacity: 0.3;
+  width: 100%;
+  margin-top:-0.5rem;
 }

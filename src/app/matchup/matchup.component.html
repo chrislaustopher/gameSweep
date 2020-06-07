@@ -1,24 +1,24 @@
-<div class="mcontainer1" fxLayout="columns" fxLayoutGap="10px">
+<div class="mcontainer1" fxLayout="column" fxLayoutGap="10px">
 	<mat-card>
-		<div fxLayout="rows">
+		<div class="matchupName" fxLayout="rows">
 			<mat-card-header class="titleName">
 				<mat-card-title>
 					<img height=50rem width=50rem src="{{this.team1Stats.team.image}}" class="center">
 				</mat-card-title>
 			</mat-card-header>
 			<mat-card-header class="titleName">
-				<mat-card-title>
-					<h3> {{this.team1Stats.team.teamLoc}} {{this.team1Stats.team.Team}} </h3>				
+				<mat-card-title class="teamNameL">
+					<h3 class="teamNameT"> {{this.team1Stats.team.teamLoc}} {{this.team1Stats.team.Team}} </h3>				
 				</mat-card-title>
 			</mat-card-header>
 			<mat-card-header class="versus">
 				<mat-card-title>
-					<h2> @ </h2>
+					<h2 class="teamNameT"> @ </h2>
 				</mat-card-title>
 			</mat-card-header>
 			<mat-card-header class="titleName">
-				<mat-card-title>
-					<h3> {{this.team2Stats.team.teamLoc}} {{this.team2Stats.team.Team}} </h3>
+				<mat-card-title class="teamNameR">
+					<h3 class="teamNameT"> {{this.team2Stats.team.teamLoc}} {{this.team2Stats.team.Team}} </h3>
 				</mat-card-title>
 			</mat-card-header>
 			<mat-card-header class="titleName">
@@ -27,18 +27,276 @@
 				</mat-card-title>
 			</mat-card-header>
 		</div>
-		<div fxLayout="columns" class="mcontainer1">
-			<div class="cat1">
+		<div fxLayout="column" class="mcontainer1">
+			<div class="cat1" fxFlex>
 				<mat-card-title class="cat2">
-					<h3> Pass Game </h3>
+					<h3 class="cat2Title"> Passing </h3>
 				</mat-card-title>
-				<mat-card-content fxLayout="rows" class="info2">
-					<mat-card-content fxFlex>
-						{{ this.team1Stats.op['Pass Yds'] }}
-					</mat-card-content>
-					<mat-card-content fxFlex>
-						grr
-					</mat-card-content>
+				<mat-card-content class="info2">
+					<div fxLayout="column" >
+						<div fxLayout="row" fxLayoutGap=4rem class="infoTitle">
+							<mat-card-content fxFlex class="cat3">
+								<h4 class="cat3Title"> on Offense </h4>
+							</mat-card-content>
+							<mat-card-content fxFlex class="cat3">
+								<h4 class="cat3Title"> on Defense </h4>
+							</mat-card-content>
+						</div>
+						<mat-card-content fxFlex class="listOverall">
+							<mat-card-content fxFlex class="midR">
+								<b>#{{ opAgg(this.team1Stats.op) }}</b> overall
+							</mat-card-content>
+							<mat-card-content class="VS">
+									<b> VS </b>
+								</mat-card-content>
+							<mat-card-content fxFlex class="midL">
+								<b>#{{ dpAgg(this.team2Stats.dp) }}</b> overall
+							</mat-card-content>
+						</mat-card-content>
+						<a mat-button *ngIf="!div1"(click)=show1() class="showAdvanced"><p class="showAdvancedT">Advanced Stats</p></a>
+						<a mat-button *ngIf="div1"(click)=show1() class="hideAdvanced"><p class="showAdvancedT">Hide Advanced Stats</p></a>
+						<mat-card-content *ngIf="div1" fxFlex class="infoList">
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.op['Yds/Att(o)'] }}</b> most Yds/Pass ({{ this.team1Stats.op['Yds/Att'] }} yds)
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.dp['Yds/Att(o)'] }}</b> most Yds/Pass allowed ({{ this.team2Stats.dp['Yds/Att'] }} yds)
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.op['Pass Yds(o)'] }}</b> most Pass Yards ({{ this.team1Stats.op['Pass Yds']}} yds)
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.dp['Yds(o)'] }}</b> most Pass Yards allowed ({{ this.team2Stats.dp['Yds'] }} yds)
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.op['Cmp %(o)'] }}</b> highest Comp % ({{ this.team1Stats.op['Cmp %']}}%)
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.dp['Cmp %(o)'] }}</b> highest Comp % allowed ({{ this.team2Stats.dp['Cmp %']}}%)	
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.op['TD(o)'] }}</b> most TDs ({{ this.team1Stats.op['TD']}})
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.dp['TD(o)'] }}</b> most TDs allowed ({{ this.team2Stats.dp['TD']}})
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.op['INT(o)'] }}</b> most INTs ({{ this.team1Stats.op['INT']}})
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.dp['INT(o)'] }}</b> most INTs forced ({{ this.team2Stats.dp['INT']}})
+								</mat-card-content>
+							</mat-card-content>
+						</mat-card-content>
+					</div>
+				</mat-card-content>
+				<mat-card-content class="info2">
+					<div fxLayout="column" >
+						<div fxLayout="row" fxLayoutGap=4rem class="infoTitle">
+							<mat-card-content fxFlex class="cat3">
+								<h4 class="cat3Title"> on Defense </h4>
+							</mat-card-content>
+							<mat-card-content fxFlex class="cat3">
+								<h4 class="cat3Title"> on Offense </h4>
+							</mat-card-content>
+						</div>
+						<mat-card-content fxFlex class="listOverall">
+							<mat-card-content fxFlex class="midR">
+								<b>#{{ dpAgg(this.team1Stats.dp) }}</b> overall
+							</mat-card-content>
+							<mat-card-content class="VS">
+									<b> VS </b>
+								</mat-card-content>
+							<mat-card-content fxFlex class="midL">
+								<b>#{{ opAgg(this.team2Stats.op) }}</b> overall
+							</mat-card-content>
+						</mat-card-content>
+						<a mat-button *ngIf="!div2"(click)=show2() class="showAdvanced"><p class="showAdvancedT">Advanced Stats</p></a>
+						<a mat-button *ngIf="div2"(click)=show2() class="hideAdvanced"><p class="showAdvancedT">Hide Advanced Stats</p></a>
+						<mat-card-content *ngIf="div2" fxFlex class="infoList">
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.dp['Yds/Att(o)'] }}</b> most Yds/Pass allowed ({{ this.team1Stats.dp['Yds/Att'] }} yds)
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.op['Yds/Att(o)'] }}</b> most Yds/Pass ({{ this.team2Stats.op['Yds/Att'] }} yds)
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.dp['Yds(o)'] }}</b> most Pass Yards allowed ({{ this.team1Stats.dp['Yds'] }} yds)
+								</mat-card-content>
+								<mat-card-content class="VS">
+									<h3> VS </h3>
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.op['Pass Yds(o)'] }}</b> most Pass Yards ({{ this.team2Stats.op['Pass Yds']}} yds)
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.dp['Cmp %(o)'] }}</b> highest Comp % allowed ({{ this.team1Stats.dp['Cmp %']}}%)	
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.op['Cmp %(o)'] }}</b> highest Comp % ({{ this.team2Stats.op['Cmp %']}}%)
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.dp['TD(o)'] }}</b> most TDs allowed ({{ this.team1Stats.dp['TD']}})
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.op['TD(o)'] }}</b> most TDs ({{ this.team2Stats.op['TD']}})
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.dp['INT(o)'] }}</b> most INTs forced ({{ this.team1Stats.dp['INT']}})
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.op['INT(o)'] }}</b> most INTs ({{ this.team2Stats.op['INT']}})
+								</mat-card-content>
+							</mat-card-content>
+						</mat-card-content>
+					</div>
+				</mat-card-content>
+			</div>
+			<div class="cat1" fxFlex>
+				<mat-card-title class="cat2">
+					<h3 class="cat2Title"> Rushing </h3>
+				</mat-card-title>
+				<mat-card-content class="info2">
+					<div fxLayout="column" >
+						<div fxLayout="row" fxLayoutGap=4rem class="infoTitle">
+							<mat-card-content fxFlex class="cat3">
+								<h4 class="cat3Title"> on Offense </h4>
+							</mat-card-content>
+							<mat-card-content fxFlex class="cat3">
+								<h4 class="cat3Title"> on Defense </h4>
+							</mat-card-content>
+						</div>
+						<mat-card-content fxFlex class="listOverall">
+							<mat-card-content fxFlex class="midR">
+								<b>#{{ orAgg(this.team1Stats.or) }}</b> overall
+							</mat-card-content>
+							<mat-card-content class="VS">
+									<b> VS </b>
+								</mat-card-content>
+							<mat-card-content fxFlex class="midL">
+								<b>#{{ drAgg(this.team2Stats.dr) }}</b> overall
+							</mat-card-content>
+						</mat-card-content>
+						<a mat-button *ngIf="!div3"(click)=show3() class="showAdvanced"><p class="showAdvancedT">Advanced Stats</p></a>
+						<a mat-button *ngIf="div3"(click)=show3() class="hideAdvanced"><p class="showAdvancedT">Hide Advanced Stats</p></a>
+						<mat-card-content *ngIf="div3" fxFlex class="infoList">
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.or['YPC(o)'] }}</b> most Yds/Carry ({{ this.team1Stats.or['YPC'] }} yds)
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.dr['YPC(o)'] }}</b> most Yds/Carry allowed ({{ this.team2Stats.dr['YPC'] }} yds)
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.or['Rush Yds(o)'] }}</b> most Rush Yards ({{ this.team1Stats.or['Rush Yds']}} yds)
+								</mat-card-content>
+								<mat-card-content class="VS">
+									<h3> VS </h3>
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.dr['Rush Yds(o)'] }}</b> most Rush Yards allowed ({{ this.team2Stats.dr['RUSH Yds'] }} yds)
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.or['TD(o)'] }}</b> most TDs ({{ this.team1Stats.or['TD']}})
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.dr['TD(o)'] }}</b> most TDs allowed ({{ this.team2Stats.dr['TD']}})
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.or['Rush FUM(o)'] }}</b> most INTs ({{ this.team1Stats.or['Rush FUM']}})
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.dr['RushFUM(o)'] }}</b> most INTs forced ({{ this.team2Stats.dr['Rush FUM']}})
+								</mat-card-content>
+							</mat-card-content>
+						</mat-card-content>
+					</div>
+				</mat-card-content>
+				<mat-card-content class="info2">
+					<div fxLayout="column" >
+						<div fxLayout="row" fxLayoutGap=4rem class="infoTitle">
+							<mat-card-content fxFlex class="cat3">
+								<h4 class="cat3Title"> on Defense </h4>
+							</mat-card-content>
+							<mat-card-content fxFlex class="cat3">
+								<h4 class="cat3Title"> on Offense </h4>
+							</mat-card-content>
+						</div>
+						<mat-card-content fxFlex class="listOverall">
+							<mat-card-content fxFlex class="midR">
+								<b>#{{ drAgg(this.team1Stats.dr) }}</b> overall
+							</mat-card-content>
+							<mat-card-content class="VS">
+									<b> VS </b>
+								</mat-card-content>
+							<mat-card-content fxFlex class="midL">
+								<b>#{{ orAgg(this.team2Stats.or) }}</b> overall
+							</mat-card-content>
+						</mat-card-content>
+						<a mat-button *ngIf="!div4"(click)=show4() class="showAdvanced"><p class="showAdvancedT">Advanced Stats</p></a>
+						<a mat-button *ngIf="div4"(click)=show4() class="hideAdvanced"><p class="showAdvancedT">Hide Advanced Stats</p></a>
+						<mat-card-content *ngIf="div4" fxFlex class="infoList">
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.dr['YPC(o)'] }}</b> most Yds/Carry allowed ({{ this.team1Stats.dr['YPC'] }} yds)
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.or['YPC(o)'] }}</b> most Yds/Carry ({{ this.team2Stats.or['YPC'] }} yds)
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.dr['Rush Yds(o)'] }}</b> most Rush Yards allowed ({{ this.team1Stats.dr['Rush Yds'] }} yds)
+								</mat-card-content>
+								<mat-card-content class="VS">
+									<h3> VS </h3>
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.or['Rush Yds(o)'] }}</b> most Rush Yards ({{ this.team2Stats.or['Rush Yds']}} yds)
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.dr['TD(o)'] }}</b> most TDs allowed ({{ this.team1Stats.dr['TD']}})
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.or['TD(o)'] }}</b> most TDs ({{ this.team2Stats.or['TD']}})
+								</mat-card-content>
+							</mat-card-content>
+							<mat-card-content class="listItem">
+								<mat-card-content fxFlex class="midR">
+									<b>#{{ this.team1Stats.dr['Rush FUM(o)'] }}</b> most INTs forced ({{ this.team1Stats.dr['Rush FUM']}})
+								</mat-card-content>
+								<mat-card-content fxFlex class="midL">
+									<b>#{{ this.team2Stats.or['Rush FUM(o)'] }}</b> most INTs ({{ this.team2Stats.or['Rush FUM']}})
+								</mat-card-content>
+							</mat-card-content>
+						</mat-card-content>
+					</div>
 				</mat-card-content>
 			</div>
 		</div>

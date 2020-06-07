@@ -58,6 +58,11 @@ export class MatchupComponent implements OnInit {
   team2DP: TeamStatsDP;
   team2DR: TeamStatsDR;
 
+  div1 = false;
+  div2 = false;
+  div3 = false;
+  div4 = false;
+
   ngOnInit(): void {
 	  this.route.parent.params.subscribe(
 		  (params:Params) => {this.weekType=params['weekType'];this.weekNum=params['weekNum']});
@@ -87,13 +92,13 @@ export class MatchupComponent implements OnInit {
       this.teamStatsService.getTeamStatsDR(this.name2,this.weekType)
     ).subscribe(response => {
       this.team1OP=<any>response[0];
-      this.team1OR=<any>response[0];
-      this.team1DP=<any>response[0];
-      this.team1DR=<any>response[0];
-      this.team2OP=<any>response[0];
-      this.team2OR=<any>response[0];
-      this.team2DP=<any>response[0];
-      this.team2DR=<any>response[0];
+      this.team1OR=<any>response[1];
+      this.team1DP=<any>response[2];
+      this.team1DR=<any>response[3];
+      this.team2OP=<any>response[4];
+      this.team2OR=<any>response[5];
+      this.team2DP=<any>response[6];
+      this.team2DR=<any>response[7];
       this.team1Stats = {
       'team': this.teamService.getTeam(this.id1),
         'op': this.team1OP[0],
@@ -110,6 +115,64 @@ export class MatchupComponent implements OnInit {
       };
     })
   }
-  
+
+  opAgg(team: TeamStatsOP): number {
+    let features: number[] = [
+      0.3*Number(team['Pass Yds(o)']),
+      0.3*Number(team['Yds/Att(o)']),
+      0.15*Number(team['Cmp %(o)']),
+      0.15*Number(team['TD(o)']),
+      0.1*(32-Number(team['INT(o)']))
+    ];
+    return Math.round(features.reduce((a,b) => a+b,0));
+  }
+
+  dpAgg(team: TeamStatsDP): number {
+    let features: number[] = [
+      0.2*(32-Number(team['Yds(o)'])),
+      0.25*(32-Number(team['Yds/Att(o)'])),
+      0.2*(32-Number(team['Cmp %(o)'])),
+      0.1*(32-Number(team['TD(o)'])),
+      0.25*(32-Number(team['INT(o)']))
+    ];
+    return Math.round(features.reduce((a,b) => a+b,0));
+  }
+
+  orAgg(team: TeamStatsOR): number {
+    let features: number[] = [
+      0.35*Number(team['Rush Yds(o)']),
+      0.35*Number(team['YPC(o)']),
+      0.2*Number(team['TD(o)']),
+      0.1*(32-Number(team['Rush FUM(o)']))
+    ];
+    return Math.round(features.reduce((a,b) => a+b,0));
+  }
+
+  drAgg(team: TeamStatsDR): number {
+    let features: number[] = [
+      0.35*(32-Number(team['Rush Yds(o)'])),
+      0.3*(32-Number(team['YPC(o)'])),
+      0.3*(32-Number(team['TD(o)'])),
+      0.05*(32-Number(team['Rush FUM(o)']))
+    ];
+    return Math.round(features.reduce((a,b) => a+b,0));
+  }
+
+  show1() {
+    this.div1 = !this.div1;
+  }
+
+  show2() {
+    this.div2 = !this.div2;
+  }
+
+  show3() {
+    this.div3 = !this.div3;
+  }
+
+  show4() {
+    this.div4 = !this.div4;
+  }
+
 }
 

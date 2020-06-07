@@ -5,4 +5,8 @@ export class TeamStatsOR {
     "YPC": string;
     "TD": string;
     "Rush FUM": string;
+    "Rush Yds(o)": string;
+    "YPC(o)": string;
+    "TD(o)": string;
+    "Rush FUM(o)": string;
 }
