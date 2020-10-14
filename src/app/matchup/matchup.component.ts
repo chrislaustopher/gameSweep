@@ -116,46 +116,46 @@ export class MatchupComponent implements OnInit {
     })
   }
 
-  opAgg(team: TeamStatsOP): number {
+  opAgg(team: TeamStatsOP): string {
     let features: number[] = [
       0.3*Number(team['Pass Yds(o)']),
       0.3*Number(team['Yds/Att(o)']),
       0.15*Number(team['Cmp %(o)']),
       0.15*Number(team['TD(o)']),
-      0.1*(32-Number(team['INT(o)']))
+      0.1*(33-Number(team['INT(o)']))
     ];
-    return Math.round(features.reduce((a,b) => a+b,0));
+    return String(Math.round(features.reduce((a,b) => a+b,0)));
   }
 
-  dpAgg(team: TeamStatsDP): number {
+  dpAgg(team: TeamStatsDP): string {
     let features: number[] = [
-      0.2*(32-Number(team['Yds(o)'])),
-      0.25*(32-Number(team['Yds/Att(o)'])),
-      0.2*(32-Number(team['Cmp %(o)'])),
-      0.1*(32-Number(team['TD(o)'])),
-      0.25*(32-Number(team['INT(o)']))
+      0.2*(33-Number(team['Yds(o)'])),
+      0.25*(33-Number(team['Yds/Att(o)'])),
+      0.2*(33-Number(team['Cmp %(o)'])),
+      0.1*(33-Number(team['TD(o)'])),
+      0.25*(Number(team['INT(o)']))
     ];
-    return Math.round(features.reduce((a,b) => a+b,0));
+    return String(Math.round(features.reduce((a,b) => a+b,0)));
   }
 
-  orAgg(team: TeamStatsOR): number {
+  orAgg(team: TeamStatsOR): string {
     let features: number[] = [
       0.35*Number(team['Rush Yds(o)']),
       0.35*Number(team['YPC(o)']),
       0.2*Number(team['TD(o)']),
-      0.1*(32-Number(team['Rush FUM(o)']))
+      0.1*(33-Number(team['Rush FUM(o)']))
     ];
-    return Math.round(features.reduce((a,b) => a+b,0));
+    return String(Math.round(features.reduce((a,b) => a+b,0)));
   }
 
-  drAgg(team: TeamStatsDR): number {
+  drAgg(team: TeamStatsDR): string {
     let features: number[] = [
-      0.35*(32-Number(team['Rush Yds(o)'])),
-      0.3*(32-Number(team['YPC(o)'])),
-      0.3*(32-Number(team['TD(o)'])),
-      0.05*(32-Number(team['Rush FUM(o)']))
+      0.35*(33-Number(team['Rush Yds(o)'])),
+      0.3*(33-Number(team['YPC(o)'])),
+      0.3*(33-Number(team['TD(o)'])),
+      0.05*(Number(team['Rush FUM(o)']))
     ];
-    return Math.round(features.reduce((a,b) => a+b,0));
+    return String(Math.round(features.reduce((a,b) => a+b,0)));
   }
 
   show1() {
@@ -172,6 +172,20 @@ export class MatchupComponent implements OnInit {
 
   show4() {
     this.div4 = !this.div4;
+  }
+
+  reverse(num: string) {
+    return String(33 - parseInt(num));
+  }
+
+  color(numString: string) {
+    let rank = parseInt(numString);
+    if (rank <= 10) {
+      return {'color': '#229954'}
+    }
+    if (rank >= 22) {
+      return {'color': '#A93226'}
+    }
   }
 
 }

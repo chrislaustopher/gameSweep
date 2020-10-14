@@ -27,7 +27,7 @@ export class SeasonComponent implements OnInit {
   ngOnInit(): void {
   	this.route.params.pipe(switchMap(
       (params:Params) => this.seasonService.getWeeks(params['weekType'])))
-      .subscribe((weeks) => { this.weeks = weeks});
+      .subscribe((weeks) => { this.weeks = weeks });
   }
 
 }

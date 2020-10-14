@@ -4,6 +4,7 @@ import { WeekType } from '../shared/weekType';
 
 import { ApiService } from '../services/api.service';
 import { TeamService } from '../services/team.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { SeasonComponent } from '../season/season.component';
 import { WeekComponent } from '../week/week.component';
@@ -20,6 +21,14 @@ export class HomeComponent implements OnInit {
   	@Inject('BaseURL') private BaseURL) { 
 
   }
+
+  form = new FormGroup({
+    season: new FormControl('', Validators.required)
+  })
+
+  seasonList = [];
+
+  season: String;
 
   teams: Team[];
 
@@ -40,5 +49,13 @@ export class HomeComponent implements OnInit {
       weekTypeF: "Post-Season"
     }
     ];
+    this.seasonList = ['2020','2019'];
+    this.season = this.seasonList[0];
+  }
+
+  submit(){}
+
+  changeSeason(s) {
+    this.season = s.target.value
   }
 }
