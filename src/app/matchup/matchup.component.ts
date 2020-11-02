@@ -36,6 +36,7 @@ export class MatchupComponent implements OnInit {
     private router: Router) { }
 
   matchup: Matchup;
+  season: string;
   weekType: string;
   weekNum: string;
 
@@ -64,11 +65,16 @@ export class MatchupComponent implements OnInit {
   div4 = false;
 
   ngOnInit(): void {
+    this.route.parent.parent.params.subscribe(
+      (params:Params) => {this.season=params['season'];this.weekType=params['weekType'];});
+
 	  this.route.parent.params.subscribe(
-		  (params:Params) => {this.weekType=params['weekType'];this.weekNum=params['weekNum']});
+		  (params:Params) => {this.weekNum=params['weekNum']});
+
+    console.log([this.weekType,this.weekNum]);
 
   	this.route.params.pipe(switchMap(
-      (params:Params) => this.matchupService.getMatchup(this.weekType,this.weekNum,params['id'])))
+      (params:Params) => this.matchupService.getMatchup(this.season,this.weekType,this.weekNum,params['id'])))
       .subscribe((matchup) => 
         { this.matchup = matchup[0];
           this.id1 = matchup[0]['team1'];
@@ -82,14 +88,14 @@ export class MatchupComponent implements OnInit {
 
   getStats(){
     forkJoin(
-      this.teamStatsService.getTeamStatsOP(this.name1,this.weekType),
-      this.teamStatsService.getTeamStatsOR(this.name1,this.weekType),
-      this.teamStatsService.getTeamStatsDP(this.name1,this.weekType),
-      this.teamStatsService.getTeamStatsDR(this.name1,this.weekType),
-      this.teamStatsService.getTeamStatsOP(this.name2,this.weekType),
-      this.teamStatsService.getTeamStatsOR(this.name2,this.weekType),
-      this.teamStatsService.getTeamStatsDP(this.name2,this.weekType),
-      this.teamStatsService.getTeamStatsDR(this.name2,this.weekType)
+      this.teamStatsService.getTeamStatsOP(this.name1,this.season,this.weekType),
+      this.teamStatsService.getTeamStatsOR(this.name1,this.season,this.weekType),
+      this.teamStatsService.getTeamStatsDP(this.name1,this.season,this.weekType),
+      this.teamStatsService.getTeamStatsDR(this.name1,this.season,this.weekType),
+      this.teamStatsService.getTeamStatsOP(this.name2,this.season,this.weekType),
+      this.teamStatsService.getTeamStatsOR(this.name2,this.season,this.weekType),
+      this.teamStatsService.getTeamStatsDP(this.name2,this.season,this.weekType),
+      this.teamStatsService.getTeamStatsDR(this.name2,this.season,this.weekType)
     ).subscribe(response => {
       this.team1OP=<any>response[0];
       this.team1OR=<any>response[1];

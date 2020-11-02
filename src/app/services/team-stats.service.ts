@@ -29,20 +29,24 @@ export class TeamStatsService {
   constructor(private http: HttpClient) {
   }
 
-  getTeamStatsOP(name: string, weekType: string): Observable<TeamStatsOP> {
-  	return this.http.get<TeamStatsOP>(baseURL+'teamStatsOP?'+ 'weekType='+weekType+'&'+'Team=' + name);
+  getTeamStatsOP(name: string, season: string, weekType: string): Observable<TeamStatsOP> {
+  	return this.http.get<TeamStatsOP>(
+      baseURL+'teamStatsOP?'+'year='+season+'&'+'weekType='+weekType+'&'+'Team='+name);
   }
 
-  getTeamStatsOR(name: string, weekType: string): Observable<TeamStatsOR> {
-  	return this.http.get<TeamStatsOR>(baseURL+'teamStatsOR?'+ 'weekType='+weekType+'&'+'Team=' + name);
+  getTeamStatsOR(name: string, season: string, weekType: string): Observable<TeamStatsOR> {
+  	return this.http.get<TeamStatsOR>(
+      baseURL+'teamStatsOR?'+'year='+season+'&'+'weekType='+weekType+'&'+'Team='+name);
   }
 
-  getTeamStatsDP(name: string, weekType: string): Observable<TeamStatsDP> {
-  	return this.http.get<TeamStatsDP>(baseURL+'teamStatsDP?'+ 'weekType='+weekType+'&'+'Team=' + name);
+  getTeamStatsDP(name: string, season: string, weekType: string): Observable<TeamStatsDP> {
+  	return this.http.get<TeamStatsDP>(
+      baseURL+'teamStatsDP?'+'year='+season+'&'+'weekType='+weekType+'&'+'Team='+name);
   }
 
-  getTeamStatsDR(name: string, weekType: string): Observable<TeamStatsDR> {
-  	return this.http.get<TeamStatsDR>(baseURL+'teamStatsDR?'+ 'weekType='+weekType+'&'+'Team=' + name);
+  getTeamStatsDR(name: string, season: string, weekType: string): Observable<TeamStatsDR> {
+  	return this.http.get<TeamStatsDR>(
+      baseURL+'teamStatsDR?'+'year='+season+'&'+'weekType='+weekType+'&'+'Team='+name);
   }
 
 }

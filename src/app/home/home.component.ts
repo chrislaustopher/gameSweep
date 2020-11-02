@@ -6,6 +6,8 @@ import { ApiService } from '../services/api.service';
 import { TeamService } from '../services/team.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { Router, ActivatedRoute, Params, ParamMap } from '@angular/router';
+
 import { SeasonComponent } from '../season/season.component';
 import { WeekComponent } from '../week/week.component';
 
@@ -18,6 +20,7 @@ import { WeekComponent } from '../week/week.component';
 export class HomeComponent implements OnInit {
 
   constructor(private teamService: TeamService,
+    private router: Router,
   	@Inject('BaseURL') private BaseURL) { 
 
   }
@@ -49,7 +52,7 @@ export class HomeComponent implements OnInit {
       weekTypeF: "Post-Season"
     }
     ];
-    this.seasonList = ['2020','2019'];
+    this.seasonList = ['2020','2019','2018','2017','2016','2015'];
     this.season = this.seasonList[0];
   }
 
@@ -57,5 +60,6 @@ export class HomeComponent implements OnInit {
 
   changeSeason(s) {
     this.season = s.target.value
+    this.router.navigateByUrl('', { skipLocationChange: true });
   }
 }

@@ -16,8 +16,13 @@ export class SeasonService {
 
   constructor(private http: HttpClient) { }
 
-  getWeeks(weekType: string): Observable<Week[]> {
-  	return this.http.get<Week[]>(baseURL + 'weeks?weekType=' + weekType);
+  getWeeks(season: string, weekType: string): Observable<Week[]> {
+  	return this.http.get<Week[]>(
+  		baseURL + 'weeks?' + 
+  		'year=' + season +
+  		'&' +
+  		'weekType=' + weekType
+  		);
   }
 
 }

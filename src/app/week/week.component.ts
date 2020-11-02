@@ -26,10 +26,15 @@ export class WeekComponent implements OnInit {
 
   matchups: Matchup[];
   team: [];
+  weekType: string;
+  season: string;
 
   ngOnInit(): void {
+    this.route.parent.params.subscribe(
+      (params:Params) => {this.season=params['season'];this.weekType=params['weekType']});
+
   	this.route.params.pipe(switchMap(
-      (params:Params) => this.weekService.getMatchups(params['weekType'],params['weekNum'])))
+      (params:Params) => this.weekService.getMatchups(this.season,this.weekType,params['weekNum'])))
       .subscribe((matchups) => { this.matchups = matchups;});
 
   }

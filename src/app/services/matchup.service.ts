@@ -18,9 +18,11 @@ export class MatchupService {
 
   constructor(private http: HttpClient) { }
 
-  getMatchup(weekType: string, weekNum: string, matchupId: string): Observable<Matchup> {
+  getMatchup(season: string, weekType: string, weekNum: string, matchupId: string): Observable<Matchup> {
   	return this.http.get<Matchup>(
   		baseURL + 'matchups?'+ 
+      'year=' + season +
+      '&' + 
   		'weekType=' + weekType + 
   		'&' + 
   		'weekNum=' + weekNum + 

@@ -10,9 +10,9 @@ import { MatchupComponent } from './matchup/matchup.component';
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent,
 		children:[
-			{ path: 'season/:weekType', component: SeasonComponent,
+			{ path: 'season/:season/:weekType', component: SeasonComponent,
 				children: [
-					{ path: 'week/:weekType/:weekNum', component: WeekComponent,
+					{ path: 'week/:weekNum', component: WeekComponent,
 						children: [
 							{ path: 'matchup/:id', component: MatchupComponent}
 						]

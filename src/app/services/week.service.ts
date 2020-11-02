@@ -17,9 +17,11 @@ export class WeekService {
 
   constructor(private http: HttpClient) { }
 
-  getMatchups(weekType: string, weekNum: string): Observable<Matchup[]> {
+  getMatchups(season: string, weekType: string, weekNum: string): Observable<Matchup[]> {
   	return this.http.get<Matchup[]>(
   		baseURL + 'matchups?'+ 
+      'year=' + season +
+      '&' +
   		'weekType=' + weekType + 
   		'&' + 
   		'weekNum=' + weekNum

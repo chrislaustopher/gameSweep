@@ -4,7 +4,7 @@
 		<mat-nav-list>
 			<h2 class="barTitle"> Week </h2>
 			<mat-divider class="dividerPrimary"></mat-divider>
-			<a mat-list-item *ngFor="let week of weeks" [routerLink]="['week',week.weekType,week.weekNum]" 
+			<a mat-list-item *ngFor="let week of weeks" [routerLink]="['week',week.weekNum]" 
     			color="primary" routerLinkActive="active"> {{ week.weekF }} </a>
 		</mat-nav-list>
 	  </mat-drawer>
