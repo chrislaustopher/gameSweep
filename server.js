@@ -1,4 +1,5 @@
 //Install express server
+require.paths.push('/usr/local/lib/node_modules');
 const express = require('express');
 const path = require('path');
 
